@@ -1,0 +1,46 @@
+  body{
+      height: 935px;
+      width: 1349px;
+    background-color: #003947;
+  }
+  span{
+    font: small-caps bold 80px/1 sans-serif;
+    font-size: 90px;
+
+  }
+  .button {
+    border: none;
+    color: white;
+    padding: 70px 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition:all 1 ease;
+    border-radius:10px;
+    font-size: 50px;
+    cursor: pointer;
+  }
+    .button1 {background-color: #d36600;
+                position: absolute;
+                top: 200px; left: 650px;}
+    .button2 {background-color: #d36600;
+                position: absolute;
+                top: 200px; left: 950px;}
+    .button3 {background-color: #d36600;
+                position: absolute;
+                top: 200px; left: 1250px;}
+    .button4 {background-color: #d36600;
+                position: absolute;
+                top: 200px; left: 1550px;}
+    .button5 {background-color: #d36600;
+                position: absolute;
+                top: 500px; left: 650px;}
+    .button6 {background-color: #d36600;
+                position: absolute;
+                top: 500px; left: 950px;}
+    .button7 {background-color: #d36600;
+                position: absolute;
+                top: 500px; left: 1250px;}
+    .button8 {background-color: #d36600;
+                position: absolute;
+                top: 500px; left: 1550px;}
