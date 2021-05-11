@@ -1,0 +1,22 @@
+#joystick {
+    bottom: 100px;
+    right: 100px;
+    width: 200px;
+    height: 200px;
+    display: block; 
+    position: absolute;
+    background-color: #00000060;
+    border-radius: 100px;
+    display: none;
+}
+#control {
+    
+    top: 40px;
+    left: 40px;
+    width: 120px;
+    height: 120px;
+    display: block; 
+    position: absolute;
+    background-color: #00000060;
+    border-radius: 100px;
+}

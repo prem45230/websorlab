@@ -1,0 +1,10 @@
+
+[2021-04-20 14:08:52] Traceback (most recent call last):
+  File "v8function_handler.pyx", line 48, in cefpython_py36.V8FunctionHandler_Execute
+TypeError: command() missing 1 required positional argument: 'function2'
+
+
+[2021-04-20 14:09:34] Traceback (most recent call last):
+  File "v8function_handler.pyx", line 48, in cefpython_py36.V8FunctionHandler_Execute
+TypeError: command() missing 1 required positional argument: 'function2'
+

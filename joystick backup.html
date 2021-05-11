@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+  <script type="text/javascript" src="https://yoannmoinet.github.io/nipplejs/javascripts/nipplejs.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.js"></script>
+  <script type="text/javascript" src="telaop.js"></script>
+
+  <link rel="stylesheet" href="manubar.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    *{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+body{
+    background-color: #455559;
+    font-family: 'Lato', arial, sans-serif;
+    margin: 0;
+}
+
+.topnav {
+    background-color: #22393f;
+    width: 100%; 
+    height: 60px;
+}
+  .container{
+      width: 960px;
+      height: 150px;
+  }
+  .point{
+
+    text-align: left}
+
+  
+  /* -- ปุ่มไลส์ -- */
+  @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
+
+* {
+  outline: none;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  background: #2d4044;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color:#a3aaa7;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background:#22393f;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+main {
+  padding: 70px 20px 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main > div {
+  margin: auto;
+  max-width: 600px;
+}
+
+main h2 span {
+  color: #BF7497;
+}
+
+main p {
+  line-height: 1.5;
+  font-weight: 200;
+  margin: 20px 0;
+}
+
+main small {
+  font-weight: 300;
+  color: #888;
+}
+
+#nav-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+}
+#nav-container .bg {
+  position: absolute;
+  top: 61px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 70px);
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+  filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.4); 
+  border-radius: 0.25rem;
+}
+#nav-container:focus-within .bg {
+  visibility: visible;
+  opacity: .6;
+}
+#nav-container * {
+  visibility: visible;
+}
+
+.button-bar{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  height: 50px;
+  width: 30px;
+  cursor: pointer;
+  pointer-events: auto;
+  margin-left: 30px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.icon-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #aaa;
+  transition: .3s;
+}
+.icon-bar + .icon-bar {
+  margin-top: 3px;
+}
+
+#nav-container:focus-within .button-bar {
+  pointer-events: none;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,8px,0) rotate(45deg);
+}
+#nav-container:focus-within .icon-bar:nth-of-type(2) {
+  opacity: 0;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,-8px,0) rotate(-45deg);
+}
+
+#nav-content {
+  margin-top: 50px;
+  width: 90%;
+  max-width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - 50px);
+  background:#22393f;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  transform: translateX(-100%);
+  transition: transform .3s;
+  will-change: transform;
+  contain: paint;
+}
+
+#nav-content ul {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-content ul li{
+  padding: 10px 20px;
+  display: block;
+  text-transform: uppercase;
+  transition: color .1s;
+  
+}
+
+#nav-content li:hover {
+  color:#63e5c5;
+  border: 6px solid #63e5c5;
+  border-left: 0px  solid transparent;
+  border-top: 0px  solid transparent;
+  border-bottom: 0px  solid transparent;
+
+}
+
+#nav-container:focus-within #nav-content {
+  transform: none;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+a,
+a:visited,
+a:focus,
+a:active,
+a:link {
+  text-decoration: none;
+  outline: 0;
+}
+
+a {
+  color: currentColor;
+  transition: .2s ease-in-out;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  height: auto;
+  width: 100%;
+}
+/*sssssssssssssssssssssssssssssssssssssssssssssssssssssssss*/
+#joystick {
+    bottom: 100px;
+    right: 100px;
+    width: 200px;
+    height: 200px;
+    display: block; 
+    position: absolute;
+    background-color: #00000060;
+    border-radius: 100px;
+    display: none;
+}
+#control {
+    
+    top: 40px;
+    left: 40px;
+    width: 120px;
+    height: 120px;
+    display: block; 
+    position: absolute;
+    background-color: #00000060;
+    border-radius: 100px;
+}
+  </style>
+  </head>
+  <body>
+         <div class="page">
+            <header tabindex="0"><h2><span style ="color: #ff9000;">SorLab 
+              <span style ="color: aliceblue;"> web
+              </span></span></h2></header>
+            <div id="nav-container">
+              <div class="bg"></div>
+              <div class="button-bar" tabindex="0">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </div>
+              <div id="nav-content" tabindex="0">
+                <ul>
+                  <li><a href="homeweb.html">Connect</a></li>
+                  <li><a href="navigation.html">navigation</a></li>
+                  <li><a href="joystick.html">telaop</a></li>
+                </ul>
+              </div>
+               <p>Connection status: <span id="status"></span></p>
+              <p>Last /txt_msg received: <span id="msg"></span></p>
+                
+          </div>
+          <div id="zone_joystick" style="position: fixed; left: 1500px; bottom: 200px;"></div>
+          <script type="text/javascript" src="telaop.js">
+          </script>  
+        </div>
+
+           
+ <script>
+
+var ros = new ROSLIB.Ros({
+      url: 'ws://localhost:9090'});
+
+    ros.on('connection', function () {
+      document.getElementById("status").innerHTML = "Connected";
+    });
+
+    ros.on('error', function (error) {
+      document.getElementById("status").innerHTML = "Error";
+    });
+
+    ros.on('close', function () {
+      document.getElementById("status").innerHTML = "Closed";
+    });
+
+    var txt_listener = new ROSLIB.Topic({
+      ros: ros,
+      name: '/txt_msg',
+      messageType: 'std_msgs/String'
+    });
+
+    txt_listener.subscribe(function (m) {
+      document.getElementById("msg").innerHTML = m.data;
+      move(1, 0);
+    });
+
+    cmd_vel_listener = new ROSLIB.Topic({
+      ros: ros,
+      name: "/cmd_vel",
+      messageType: 'geometry_msgs/Twist'
+    });
+
+    move = function (linear, angular) {
+      var twist = new ROSLIB.Message({
+        linear: {
+          x: linear,
+          y: 0,
+          z: 0
+        },
+        angular: {
+          x: 0,
+          y: 0,
+          z: angular
+        }
+      });
+      cmd_vel_listener.publish(twist);
+    }
+
+    createJoystick = function () {
+      var options = {
+        zone: document.getElementById('zone_joystick'),
+        threshold: 0.1,
+        position: { left: 50 + '%' },
+        mode: 'static',
+        size: 150,
+        color: '#000000',
+      };
+      manager = nipplejs.create(options);
+
+      linear_speed = 0;
+      angular_speed = 0;
+
+      manager.on('start', function (event, nipple) {
+        timer = setInterval(function () {
+          move(linear_speed, angular_speed);
+        }, 25);
+      });
+
+      manager.on('move', function (event, nipple) {
+        max_linear = 5.0; // m/s
+        max_angular = 2.0; // rad/s
+        max_distance = 75.0; // pixels;
+        linear_speed = Math.sin(nipple.angle.radian) * max_linear * nipple.distance/max_distance;
+				angular_speed = -Math.cos(nipple.angle.radian) * max_angular * nipple.distance/max_distance;
+      });
+
+      manager.on('end', function () {
+        if (timer) {
+          clearInterval(timer);
+        }
+        self.move(0, 0);
+      });
+    }
+    window.onload = function () {
+      createJoystick();
+    }
+
+  
+ </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="vel"></div>
+    <!--<button onclick="Ant(1)">sss</button>
+    <script>
+        function Ant(text){
+            pythonCall(text,callbackPy)
+        }
+        function callbackPy(e){
+            console.log(e)
+        }-->
+    <script>
+        setup(callbackPy)
+        function callbackPy(y){
+            trace1["x"]=y[2]
+            trace1["y"]=y[0]
+            trace2["x"]=y[2]
+            trace2["y"]=y[1]
+            console.log(y)
+
+        var data = [trace1, trace2];
+      
+        var layout = {
+            title:'Velocity Per Graph',
+            plot_bgcolor:"#2a9df4",
+            paper_bgcolor:"#2a9df4"
+        };
+      
+        Plotly.newPlot('vel', data, layout);
+        }
+
+      var trace1 = {
+        x: [1, 2, 3, 4,],
+        y: [0.1, 0.2, 0.3, 0.4,],
+        mode: 'lines+markers',
+        marker: {
+          color: 'rgb(255, 255, 255)',
+          size: 5
+                },
+          line: {
+          color: 'rgb(255, 255, 255)',
+          width: 2
+                },
+        name: 'Right'
+      };
+      
+      var trace2 = {
+        x: [1, 2, 3, 4],
+        y: [-1, 0.2, 0.3, 0.4,],
+        mode: 'lines+markers',
+        marker: {
+          color: 'rgb(255, 255, 255)',
+          size: 5
+                },
+          line: {
+          color: 'rgb(255, 255, 255)',
+          width: 2
+                },
+        name: 'Left'
+      };
+      
+      var data = [trace1, trace2];
+      
+      var layout = {
+        title:'Velocity Per Graph'
+      };
+      
+      Plotly.newPlot('vel', data, layout);
+      </script>
+</body>
+</html>
